@@ -1,0 +1,2137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<title>Laura Marianne - 15 Anos</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+  :root {
+    --gold: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    --gold-color: #FFD700;
+    --red: #8B0000;
+    --black: #0a0a0a;
+    --cream: #FFF8DC;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Playfair Display', serif;
+    background: #1a1a2e;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Background com gradiente cinematográfico melhorado */
+  .cinema-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(ellipse at top, #000000 0%, #1a0000 30%, #2a0000 60%, #ff910025 100%),
+      linear-gradient(180deg, #000000 0%, #1a0000 50%, #2a0000 100%);
+    z-index: -2;
+  }
+
+  /* Padrão de estrelas no fundo */
+  .stars-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #FFD700, transparent),
+      radial-gradient(2px 2px at 40px 70px, #FFA500, transparent),
+      radial-gradient(1px 1px at 50px 90px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 80px, #FFD700, transparent),
+      radial-gradient(2px 2px at 80px 10px, #FFA500, transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: stars-twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes stars-twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+
+  /* Partículas douradas flutuantes */
+  .particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-up 15s infinite linear;
+  }
+
+  @keyframes float-up {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Container principal */
+  .main-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* TELA DE ENTRADA COM TAPETE VERMELHO */
+  .entrance-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #1a0000 100%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .entrance-screen.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  /* Cortinas teatrais */
+  .stage-curtains {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        #8B0000 0px,
+        #DC143C 20px,
+        #8B0000 40px
+      );
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+  }
+
+  .curtain-left {
+    left: -5%;
+    transform-origin: left center;
+    animation: curtain-sway-left 4s ease-in-out infinite alternate;
+  }
+
+  .curtain-right {
+    right: -5%;
+    transform-origin: right center;
+    animation: curtain-sway-right 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes curtain-sway-left {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes curtain-sway-right {
+    0% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  
+  /* Holofotes melhorados */
+  .spotlights-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .spotlight {
+    position: absolute;
+    width: 400px;
+    height: 700px;
+    background: radial-gradient(
+      ellipse at top,
+      rgba(255, 215, 0, 0.6) 0%,
+      rgba(255, 215, 0, 0.3) 20%,
+      rgba(255, 165, 0, 0.1) 40%,
+      transparent 70%
+    );
+    filter: blur(10px);
+    transform-origin: top center;
+  }
+
+  .spotlight.left {
+    left: -100px;
+    top: -200px;
+    transform: rotate(25deg);
+    animation: spotlight-left 5s ease-in-out infinite alternate;
+  }
+
+  .spotlight.right {
+    right: -100px;
+    top: -200px;
+    transform: rotate(-25deg);
+    animation: spotlight-right 5s ease-in-out infinite alternate;
+  }
+
+  .spotlight.center {
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    top: -200px;
+    width: 500px;
+    animation: spotlight-center 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes spotlight-left {
+    0% { transform: rotate(25deg); opacity: 0.6; }
+    100% { transform: rotate(15deg); opacity: 1; }
+  }
+
+  @keyframes spotlight-right {
+    0% { transform: rotate(-25deg); opacity: 0.6; }
+    100% { transform: rotate(-15deg); opacity: 1; }
+  }
+
+  @keyframes spotlight-center {
+    0% { opacity: 0.5; transform: translateX(-50%) scaleX(0.8); }
+    100% { opacity: 0.8; transform: translateX(-50%) scaleX(1); }
+  }
+
+  /* Paparazzi flashes */
+  .paparazzi-flashes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .flash {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: camera-flash 3s infinite;
+  }
+
+  .flash:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+  .flash:nth-child(2) { top: 30%; right: 15%; animation-delay: 0.5s; }
+  .flash:nth-child(3) { bottom: 40%; left: 20%; animation-delay: 1s; }
+  .flash:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 1.5s; }
+  .flash:nth-child(5) { top: 50%; left: 5%; animation-delay: 2s; }
+
+  @keyframes camera-flash {
+    0%, 95%, 100% { opacity: 0; transform: scale(1); }
+    96% { opacity: 1; transform: scale(2); }
+  }
+
+  /* Nome em caligrafia dourada */
+  .entrance-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: entrance-fade 2s ease;
+  }
+
+  @keyframes entrance-fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .golden-name {
+    font-family: 'Allura', cursive;
+    font-size: 6rem;
+    background: linear-gradient(
+      135deg,
+      #FFD700 0%,
+      #FFED4B 25%,
+      #FFA500 50%,
+      #FFD700 75%,
+      #FFED4B 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
+    animation: shimmer 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glow {
+    0% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+    100% { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)); }
+  }
+
+  /* Subtítulo */
+  .subtitle {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  /* Hollywood stars decoration */
+  .hollywood-walk {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .walk-star {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+    animation: star-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes star-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* Botão Enter luxuoso */
+  .enter-button {
+    padding: 20px 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 10px 30px rgba(255, 215, 0, 0.3),
+      inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    margin-top: 30px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .enter-button:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 
+      0 15px 40px rgba(255, 215, 0, 0.5),
+      inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .enter-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s;
+  }
+
+  .enter-button:hover::before {
+    animation: shine 0.5s ease;
+  }
+
+  @keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+
+  /* CONTEÚDO PRINCIPAL */
+  .content {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
+  .content.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Decorações fixas melhoradas */
+  .floating-decorations {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .oscar-decoration {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 140px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .oscar-statue {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    border-radius: 30px 30px 10px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .oscar-statue::before {
+    content: '🏆';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  .clapper-board {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 60px;
+    animation: clap 4s ease-in-out infinite;
+  }
+
+  @keyframes clap {
+    0%, 90%, 100% { transform: rotate(0); }
+    95% { transform: rotate(-10deg); }
+  }
+
+  .clapper-top {
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      #000 10px,
+      #fff 10px,
+      #fff 20px
+    );
+    border: 2px solid #000;
+    transform-origin: bottom left;
+    animation: clapper-move 4s ease-in-out infinite;
+    position: relative;
+  }
+
+  .clapper-top::after {
+    content: '🎬';
+    position: absolute;
+    right: -25px;
+    top: -5px;
+    font-size: 20px;
+  }
+
+  @keyframes clapper-move {
+    0%, 90%, 100% { transform: rotate(0); }
+    95% { transform: rotate(-20deg); }
+  }
+
+  .clapper-bottom {
+    width: 100%;
+    height: 40px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .film-roll {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 200px;
+    background: repeating-linear-gradient(
+      0deg,
+      #000 0px,
+      #000 20px,
+      transparent 20px,
+      transparent 30px
+    );
+    border-left: 5px solid #222;
+    border-right: 5px solid #222;
+    animation: roll 10s linear infinite;
+  }
+
+  .film-roll::before {
+    content: '📽️';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+  }
+
+  @keyframes roll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 30px; }
+  }
+
+  .theater-masks {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 3rem;
+    opacity: 0.5;
+    animation: rotate-masks 10s linear infinite;
+  }
+
+  @keyframes rotate-masks {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .camera-decoration {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    font-size: 2.5rem;
+    animation: camera-move 5s ease-in-out infinite;
+  }
+
+  @keyframes camera-move {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    50% { transform: translateX(10px) rotate(10deg); }
+  }
+
+  .director-chair {
+    position: absolute;
+    bottom: 100px;
+    left: 30px;
+    width: 50px;
+    height: 60px;
+  }
+
+  .chair-back {
+    width: 100%;
+    height: 35px;
+    background: #333;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+  }
+
+  .chair-back::after {
+    content: 'DIRECTOR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFD700;
+    font-size: 6px;
+    font-weight: bold;
+  }
+
+  .chair-seat {
+    width: 100%;
+    height: 25px;
+    background: #222;
+    border-radius: 0 0 5px 5px;
+  }
+
+  /* Ticket dourado principal melhorado */
+  .golden-ticket {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFFFFF 50%, #FFF8DC 100%);
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin: 30px auto;
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.3),
+      0 0 100px rgba(255, 215, 0, 0.2),
+      inset 0 0 30px rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(5deg);
+    animation: ticket-float 3s ease-in-out infinite;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .golden-ticket::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  @keyframes ticket-float {
+    0%, 100% { transform: perspective(1000px) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(1000px) rotateX(5deg) translateY(-5px); }
+  }
+
+  .golden-ticket::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 215, 0, 0.1) 50%,
+      transparent 70%
+    );
+    animation: sweep 3s infinite;
+  }
+
+  @keyframes sweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .ticket-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .ticket-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B0000, #DC143C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(139, 0, 0, 0.2);
+  }
+
+  .ticket-subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #FFD700;
+    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+  }
+
+  .hollywood-stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    color: var(--gold-color);
+    margin: 15px 0;
+  }
+
+  .star-icon-ticket {
+    animation: star-pulse-ticket 1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+
+  @keyframes star-pulse-ticket {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+  }
+
+  .ticket-info {
+    color: #333;
+    margin: 25px 0;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px dashed rgba(139, 0, 0, 0.2);
+    position: relative;
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:hover {
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  .info-label {
+    font-weight: 700;
+    color: #8B0000;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .info-value {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  /* Special info badges */
+  .special-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 10px;
+    animation: badge-shine 2s infinite;
+  }
+
+  @keyframes badge-shine {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Red carpet section melhorado */
+  .red-carpet-section {
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(
+      180deg,
+      #8B0000 0%,
+      #DC143C 50%,
+      #8B0000 100%
+    );
+    border-radius: 15px;
+    box-shadow: 
+      inset 0 5px 20px rgba(0, 0, 0, 0.3),
+      0 10px 30px rgba(139, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .red-carpet-section::before {
+    content: '🌟';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    animation: star-rotate 5s linear infinite;
+  }
+
+  @keyframes star-rotate {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+  }
+
+  .red-carpet-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: carpet-shine 3s infinite;
+  }
+
+  @keyframes carpet-shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Tabs de navegação melhorados */
+  .nav-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    flex: 1;
+    min-width: 100px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--gold-color);
+    color: var(--gold-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  .tab-button:hover::before,
+  .tab-button.active::before {
+    left: 0;
+  }
+
+  .tab-button:hover,
+  .tab-button.active {
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  }
+
+  .tab-icon {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    animation: icon-bounce 2s ease-in-out infinite;
+  }
+
+  .tab-button:hover .tab-icon {
+    animation: icon-spin 0.5s ease;
+  }
+
+  @keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  @keyframes icon-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  .tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Location section com mais detalhes */
+  .location-info {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .location-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .location-row:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateX(5px);
+  }
+
+  .location-icon {
+    font-size: 2rem;
+    animation: icon-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes icon-glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8)); }
+  }
+
+  .location-text {
+    flex: 1;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  .location-text strong {
+    color: var(--gold-color);
+    font-size: 1.1rem;
+  }
+
+  /* Gift section com animações */
+  .qr-section {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .gift-header {
+    margin-bottom: 20px;
+  }
+
+  .gift-title {
+    font-size: 1.8rem;
+    color: var(--gold-color);
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  .gift-subtitle {
+    color: #fff;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .qr-container {
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(255, 215, 0, 0.2);
+    position: relative;
+    animation: qr-float 3s ease-in-out infinite;
+  }
+
+  @keyframes qr-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  .qr-container::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 30px;
+    animation: sparkle 1s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(180deg); }
+  }
+
+  .qr-code-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .pix-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--gold-color);
+  }
+
+  .pix-key {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--gold-color);
+    word-break: break-all;
+    font-weight: bold;
+  }
+
+  /* Dress code section */
+  .dress-code-info {
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid var(--gold-color);
+  }
+
+  .dress-code-title {
+    color: var(--gold-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .dress-code-items {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .dress-item {
+    text-align: center;
+    flex: 1;
+  }
+
+  .dress-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: dress-float 3s ease-in-out infinite;
+  }
+
+  .dress-item:nth-child(1) .dress-icon { animation-delay: 0s; }
+  .dress-item:nth-child(2) .dress-icon { animation-delay: 0.5s; }
+  .dress-item:nth-child(3) .dress-icon { animation-delay: 1s; }
+
+  @keyframes dress-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .dress-label {
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Timeline section */
+  .timeline-container {
+    padding: 20px 0;
+  }
+
+  .timeline-title {
+    color: var(--gold-color);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    position: relative;
+  }
+
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid var(--gold-color);
+    margin: 0 20px;
+  }
+
+  .timeline-time {
+    font-size: 1.3rem;
+    color: var(--gold-color);
+    font-weight: bold;
+  }
+
+  .timeline-event {
+    color: #fff;
+    margin-top: 5px;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+  }
+
+  /* Gallery section */
+  .gallery-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--gold-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.2);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  }
+
+  /* Footer melhorado */
+  .footer-decoration {
+    text-align: center;
+    margin-top: 40px;
+    padding: 30px;
+    position: relative;
+  }
+
+  .footer-stars {
+    font-size: 2.5rem;
+    color: var(--gold-color);
+    letter-spacing: 15px;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .footer-message {
+    margin-top: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    color: var(--gold-color);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Confetti animation */
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    display: none;
+  }
+
+  .confetti-container.active {
+    display: block;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--gold-color);
+    animation: confetti-fall 3s linear forwards;
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsividade */
+  @media (max-width: 480px) {
+    .golden-name {
+      font-size: 4rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+    }
+    
+    .enter-button {
+      font-size: 1.5rem;
+      padding: 15px 40px;
+    }
+    
+    .golden-ticket {
+      margin: 20px 10px;
+      padding: 30px 20px;
+    }
+    
+    .ticket-title {
+      font-size: 1.6rem;
+    }
+    
+    .tab-button {
+      font-size: 0.9rem;
+      padding: 12px 15px;
+      min-width: 80px;
+    }
+    
+    .qr-code-img {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .dress-code-items {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .timeline-item {
+      flex-direction: column !important;
+    }
+    
+    .timeline::before {
+      display: none;
+    }
+    
+    .timeline-dot {
+      display: none;
+    }
+    
+    .gallery-preview {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .carpet-3d {
+      width: 200px;
+      height: 400px;
+    }
+  }
+
+  /* Holofotes do chão nos cantos */
+  .floor-spotlights {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 15; /* Aumentado para ficar na frente das cortinas */
+  }
+
+  .floor-spotlight {
+    position: absolute;
+    bottom: -50px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+    transition: all 1s ease;
+  }
+
+  .floor-spotlight::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 40px;
+    background: radial-gradient(ellipse, #2a2a2a 0%, #1a1a1a 50%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .floor-spotlight::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) perspective(500px) rotateX(-60deg);
+    width: 300px;
+    height: 600px;
+    background: conic-gradient(
+      from 180deg at 50% 100%,
+      transparent 0deg,
+      transparent 70deg,
+      rgba(255, 215, 0, 0) 70deg,
+      rgba(255, 215, 0, 0.1) 85deg,
+      rgba(255, 215, 0, 0.3) 90deg,
+      rgba(255, 215, 0, 0.5) 95deg,
+      rgba(255, 215, 0, 0.3) 100deg,
+      rgba(255, 215, 0, 0.1) 105deg,
+      rgba(255, 215, 0, 0) 110deg,
+      transparent 110deg,
+      transparent 360deg
+    );
+    filter: blur(15px);
+    transform-origin: bottom center;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
+  .floor-spotlight.left {
+    left: 10px; /* Mais para dentro da tela */
+    transform: rotate(-15deg);
+  }
+
+  .floor-spotlight.right {
+    right: 10px; /* Mais para dentro da tela */
+    transform: rotate(15deg);
+  }
+
+  /* Estado ativo dos holofotes */
+  .floor-spotlight.active::after {
+    opacity: 1;
+    animation: spotlight-beam 3s ease-in-out infinite;
+  }
+
+  @keyframes spotlight-beam {
+    0%, 100% {
+      transform: translateX(-50%) perspective(500px) rotateX(-60deg) scaleY(1);
+      filter: blur(15px) brightness(1);
+    }
+    50% {
+      transform: translateX(-50%) perspective(500px) rotateX(-60deg) scaleY(1.1);
+      filter: blur(12px) brightness(1.2);
+    }
+  }
+
+  /* Base metálica do holofote */
+  .spotlight-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+  }
+
+  .spotlight-base::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+    background: radial-gradient(circle, #4a4a4a 0%, #2a2a2a 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+  }
+
+  /* Lâmpada do holofote */
+  .spotlight-bulb {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #333 0%, #111 100%);
+    border-radius: 50%;
+    transition: all 1s ease;
+  }
+
+  .floor-spotlight.active .spotlight-bulb {
+    background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    animation: bulb-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes bulb-glow {
+    0%, 100% {
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(255, 215, 0, 1);
+    }
+  }
+
+  /* Responsividade para holofotes */
+  @media (max-width: 480px) {
+    .floor-spotlight {
+      width: 100px;
+    }
+    
+    .floor-spotlight.left {
+      left: 20px;
+    }
+    
+    .floor-spotlight.right {
+      right: 20px;
+    }
+    
+    .floor-spotlight::after {
+      width: 200px;
+      height: 400px;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <!-- Background cinematográfico -->
+  <div class="cinema-bg"></div>
+  <div class="stars-background"></div>
+  
+  <!-- Partículas douradas -->
+  <div class="particles" id="particles"></div>
+  
+  <!-- Confetti container -->
+  <div class="confetti-container" id="confettiContainer"></div>
+  
+  <!-- Decorações fixas -->
+  <div class="floating-decorations">
+    <div class="oscar-decoration">
+      <div class="oscar-statue"></div>
+    </div>
+    
+    <div class="clapper-board">
+      <div class="clapper-top"></div>
+      <div class="clapper-bottom">ACTION!</div>
+    </div>
+    
+    <div class="film-roll"></div>
+    
+    <div class="theater-masks">🎭</div>
+    
+    <div class="camera-decoration">📷</div>
+    
+    <div class="director-chair">
+      <div class="chair-back"></div>
+      <div class="chair-seat"></div>
+    </div>
+  </div>
+  
+  <!-- Tela de entrada -->
+  <div class="entrance-screen" id="entranceScreen">
+    <!-- Cortinas -->
+    <div class="stage-curtains">
+      <div class="curtain curtain-left"></div>
+      <div class="curtain curtain-right"></div>
+    </div>
+    
+    <!-- Tapete vermelho com escadas -->
+    <div class="red-carpet-entrance">
+      <div class="stairs">
+        <div class="stair-step"></div>
+        <div class="stair-step"></div>
+        <div class="stair-step"></div>
+        <div class="stair-step"></div>
+        <div class="stair-step"></div>
+        <div class="stair-step"></div>
+      </div>
+      
+      <div class="carpet-3d"></div>
+      
+      <div class="vip-ropes">
+        <div class="rope-post left"></div>
+        <div class="rope-post right"></div>
+        <div class="rope"></div>
+      </div>
+    </div>
+    
+    <!-- Holofotes -->
+    <div class="spotlights-container">
+      <div class="spotlight left"></div>
+      <div class="spotlight center"></div>
+      <div class="spotlight right"></div>
+    </div>
+    
+    <!-- Flashes de paparazzi -->
+    <div class="paparazzi-flashes">
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="flash"></div>
+      <div class="floor-spotlights">
+  <div class="floor-spotlight left" id="floorSpotlightLeft">
+    <div class="spotlight-base"></div>
+    <div class="spotlight-bulb"></div>
+  </div>
+  <div class="floor-spotlight right" id="floorSpotlightRight">
+    <div class="spotlight-base"></div>
+    <div class="spotlight-bulb"></div>
+  </div>
+</div>
+    </div>
+    
+    <!-- Estrelas do passeio da fama -->
+    <div class="hollywood-walk">
+      <div class="walk-star"></div>
+      <div class="walk-star"></div>
+      <div class="walk-star"></div>
+    </div>
+    
+    <!-- Conteúdo de entrada -->
+    <div class="entrance-content">
+      <h1 class="golden-name">Laura Marianne</h1>
+      <p class="subtitle">Uma Noite em Hollywood</p>
+      <button class="enter-button" id="enterBtn">
+        ⭐ ENTRAR NO TAPETE VERMELHO ⭐
+      </button>
+    </div>
+    <div class="floor-spotlights">
+  <div class="floor-spotlight left" id="floorSpotlightLeft">
+    <div class="spotlight-base"></div>
+    <div class="spotlight-bulb"></div>
+  </div>
+  <div class="floor-spotlight right" id="floorSpotlightRight">
+    <div class="spotlight-base"></div>
+    <div class="spotlight-bulb"></div>
+  </div>
+</div>
+
+  </div>
+  
+  <!-- Conteúdo principal -->
+  <div class="main-container">
+    <div class="content" id="mainContent">
+      <!-- Ticket dourado principal -->
+      <div class="golden-ticket">
+        <div class="ticket-header">
+          <h2 class="ticket-title">Festa de 15 Anos</h2>
+          <p class="ticket-subtitle">Laura Marianne</p>
+          <div class="hollywood-stars">
+            <span class="star-icon-ticket" style="--i: 0">⭐</span>
+            <span class="star-icon-ticket" style="--i: 1">⭐</span>
+            <span class="star-icon-ticket" style="--i: 2">⭐</span>
+            <span class="star-icon-ticket" style="--i: 3">⭐</span>
+            <span class="star-icon-ticket" style="--i: 4">⭐</span>
+          </div>
+        </div>
+        
+        <div class="ticket-info">
+          <div class="info-row">
+            <span class="info-label">📅 Data</span>
+            <span class="info-value">01 de Novembro de 2025</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">🕐 Horário</span>
+            <span class="info-value">19h00</span>
+          </div>
+          <div class="info-row">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Red Carpet Section -->
+      <div class="red-carpet-section">
+        <div class="nav-tabs">
+          <button class="tab-button active" data-tab="location">
+            <span class="tab-icon">📍</span>
+            LOCAL
+          </button>
+          <button class="tab-button" data-tab="gift">
+            <span class="tab-icon">🎁</span>
+            PRESENTE
+          </button>
+        </div>
+        
+        <div class="tab-content">
+          <!-- Location Tab -->
+          <div class="tab-pane active" id="location">
+            <div class="location-info">
+              <div class="location-row">
+                <span class="location-icon">🏛️</span>
+                <div class="location-text">
+                  <strong>Nome do local</strong><br>
+                  Rua do local, 123
+                </div>
+              </div>
+              <div class="location-row">
+                <span class="location-icon">📍</span>
+                <div class="location-text">
+                  <strong>Barueri - São Paulo</strong><br>
+                  CEP: 06400-000
+                </div>
+              </div>
+              </div>
+              <div class="location-row">
+                <span class="location-icon">✨</span>
+                <div class="location-text">
+                  <em>"Pessoas especiais participam de momentos inesqueciveis!"</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Timeline Tab -->
+          <div class="tab-pane" id="timeline">
+            <div class="timeline-container">
+              <h3 class="timeline-title">🎬 Programação da Noite</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-event">Recepção no Tapete Vermelho</div>
+                  </div>
+                  <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-time">19:30</div>
+                    <div class="timeline-event">Entrada da Debutante</div>
+                  </div>
+                  <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-event">Valsa & Dança Especial</div>
+                  </div>
+                  <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-time">21:00</div>
+                    <div class="timeline-event">Jantar Gourmet</div>
+                  </div>
+                  <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-time">22:30</div>
+                    <div class="timeline-event">Festa & DJ</div>
+                  </div>
+                  <div class="timeline-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gift Tab -->
+          <div class="tab-pane" id="gift">
+            <div class="qr-section">
+              <div class="gift-header">
+                <h3 class="gift-title">🎁 Presente via PIX</h3>
+                <p class="gift-subtitle">Sua presença é o melhor presente!</p>
+              </div>
+              <div class="qr-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=00020101021126330014br.gov.bcb.pix0111238994558945204000053039865802BR5918LAURA%20M%20S%20OLIVEIRA6013SANTANA%20DE%20PA62070503***63044371" alt="QR Code PIX" class="qr-code-img">
+              </div>
+              <div class="pix-info">
+                <p style="color: #ffffff; margin-bottom: 10px;">Chave PIX (CPF):</p>
+                <p class="pix-key">238.994.558-94</p>
+              </div>
+            </div>
+          </div>
+
+      <!-- Footer -->
+      <div class="footer-decoration">
+        <div class="footer-stars">⭐⭐⭐⭐⭐</div>
+        <p class="footer-message">Laura Marianne</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Criar partículas douradas
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.width = Math.random() * 10 + 5 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+        container.appendChild(particle);
+      }
+    }
+
+    // Entrar no site
+document.getElementById('enterBtn').addEventListener('click', function() {
+  // Ativar holofotes do chão
+  const leftSpotlight = document.getElementById('floorSpotlightLeft');
+  const rightSpotlight = document.getElementById('floorSpotlightRight');
+  
+  // Adicionar classe active com delay
+  setTimeout(() => {
+    leftSpotlight.classList.add('active');
+  }, 100);
+  
+  setTimeout(() => {
+    rightSpotlight.classList.add('active');
+  }, 300);
+  
+  // Criar confetti
+  setTimeout(() => {
+    createConfetti();
+  }, 500);
+  
+  // Som de aplausos (simulado)
+  try {
+    const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF');
+    audio.volume = 0.3;
+    audio.play().catch(() => {});
+  } catch(e) {}
+  
+  // Animação de saída
+  setTimeout(() => {
+    document.getElementById('entranceScreen').classList.add('hidden');
+    document.getElementById('mainContent').classList.add('visible');
+  }, 1500);
+});
+    // Criar confetti
+    function createConfetti() {
+      const container = document.getElementById('confettiContainer');
+      container.classList.add('active');
+      
+      const colors = ['#FFD700', '#FFA500', '#DC143C', '#8B0000', '#FFF'];
+      
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        container.appendChild(confetti);
+      }
+      
+      setTimeout(() => {
+        container.classList.remove('active');
+        container.innerHTML = '';
+      }, 5000);
+    }
+
+    // Tabs navigation
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        // Adicionar efeito de explosão de estrelas
+        createStarBurst(this);
+        
+        // Remover active de todos
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        
+        // Adicionar active ao clicado
+        this.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+        
+        // Efeitos especiais por tab
+        if (targetTab === 'gift') {
+          animateGiftSection();
+        } else if (targetTab === 'gallery') {
+          animateGallery();
+        } else if (targetTab === 'timeline') {
+          animateTimeline();
+        }
+      });
+    });
+
+    // Criar explosão de estrelas ao clicar
+    function createStarBurst(element) {
+      const rect = element.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      
+      for (let i = 0; i < 8; i++) {
+        const star = document.createElement('div');
+        star.innerHTML = '⭐';
+        star.style.position = 'fixed';
+        star.style.left = x + 'px';
+        star.style.top = y + 'px';
+        star.style.fontSize = '20px';
+        star.style.zIndex = '9999';
+        star.style.pointerEvents = 'none';
+        star.style.animation = `starBurst 0.6s ease-out forwards`;
+        
+        const angle = (i * 45) * Math.PI / 180;
+        star.style.setProperty('--dx', Math.cos(angle) * 100 + 'px');
+        star.style.setProperty('--dy', Math.sin(angle) * 100 + 'px');
+        
+        document.body.appendChild(star);
+        
+        setTimeout(() => star.remove(), 600);
+      }
+    }
+
+    // Adicionar animação de explosão de estrelas
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes starBurst {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--dx), var(--dy)) scale(0);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Animar seção de presente
+    function animateGiftSection() {
+      const qrContainer = document.querySelector('.qr-container');
+      if (qrContainer) {
+        qrContainer.style.animation = 'none';
+        setTimeout(() => {
+          qrContainer.style.animation = 'qr-float 3s ease-in-out infinite, giftAppear 0.5s ease';
+        }, 10);
+      }
+      
+      // Adicionar fogos de artifício
+      createFireworks();
+    }
+
+    // Criar fogos de artifício
+    function createFireworks() {
+      const colors = ['#FFD700', '#FFA500', '#DC143C', '#FF69B4', '#00CED1'];
+      
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => {
+          const x = Math.random() * window.innerWidth;
+          const y = Math.random() * window.innerHeight / 2;
+          
+          for (let j = 0; j < 20; j++) {
+            const spark = document.createElement('div');
+            spark.style.position = 'fixed';
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+            spark.style.width = '4px';
+            spark.style.height = '4px';
+            spark.style.borderRadius = '50%';
+            spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+            spark.style.pointerEvents = 'none';
+            spark.style.zIndex = '9999';
+            
+            const angle = (j * 18) * Math.PI / 180;
+            const velocity = 50 + Math.random() * 50;
+            spark.style.setProperty('--fx', Math.cos(angle) * velocity + 'px');
+            spark.style.setProperty('--fy', Math.sin(angle) * velocity + 'px');
+            spark.style.animation = 'firework 1s ease-out forwards';
+            
+            document.body.appendChild(spark);
+            setTimeout(() => spark.remove(), 1000);
+          }
+        }, i * 200);
+      }
+    }
+
+    // Animação de fogos
+    const fireworkStyle = document.createElement('style');
+    fireworkStyle.textContent = `
+      @keyframes firework {
+        0% {
+          transform: translate(0, 0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--fx), var(--fy));
+          opacity: 0;
+        }
+      }
+      @keyframes giftAppear {
+        0% {
+          transform: scale(0) rotate(360deg);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+      }
+    `;
+    document.head.appendChild(fireworkStyle);
+
+    // Animar galeria
+    function animateGallery() {
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach((item, index) => {
+        item.style.animation = 'none';
+        setTimeout(() => {
+          item.style.animation = `galleryPop 0.5s ease forwards`;
+          item.style.animationDelay = index * 0.1 + 's';
+        }, 10);
+      });
+    }
+
+    // Animação da galeria
+    const galleryStyle = document.createElement('style');
+    galleryStyle.textContent = `
+      @keyframes galleryPop {
+        0% {
+          transform: scale(0) rotate(180deg);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.2) rotate(10deg);
+        }
+        100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+      }
+    `;
+    document.head.appendChild(galleryStyle);
+
+    // Animar timeline
+    function animateTimeline() {
+      const dots = document.querySelectorAll('.timeline-dot');
+      dots.forEach((dot, index) => {
+        dot.style.animation = 'none';
+        setTimeout(() => {
+          dot.style.animation = `timelinePulse 0.5s ease forwards, dot-pulse 2s ease-in-out infinite`;
+          dot.style.animationDelay = index * 0.2 + 's';
+        }, 10);
+      });
+    }
+
+    // Animação timeline
+    const timelineStyle = document.createElement('style');
+    timelineStyle.textContent = `
+      @keyframes timelinePulse {
+        0% {
+          transform: translateX(-50%) scale(0);
+        }
+        50% {
+          transform: translateX(-50%) scale(1.5);
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+        }
+      }
+    `;
+    document.head.appendChild(timelineStyle);
+
+    // Hover effects nos items da galeria
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.animation = 'galleryHover 0.3s ease forwards';
+        
+        // Criar mini estrelas ao redor
+        for (let i = 0; i < 4; i++) {
+          const miniStar = document.createElement('span');
+          miniStar.innerHTML = '✨';
+          miniStar.style.position = 'absolute';
+          miniStar.style.fontSize = '15px';
+          miniStar.style.pointerEvents = 'none';
+          miniStar.style.animation = 'miniStarFloat 1s ease-out forwards';
+          
+          const positions = [
+            { top: '-10px', left: '-10px' },
+            { top: '-10px', right: '-10px' },
+            { bottom: '-10px', left: '-10px' },
+            { bottom: '-10px', right: '-10px' }
+          ];
+          
+          Object.assign(miniStar.style, positions[i]);
+          this.appendChild(miniStar);
+          
+          setTimeout(() => miniStar.remove(), 1000);
+        }
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.animation = '';
+      });
+    });
+
+    // Mini estrelas flutuantes
+    const miniStarStyle = document.createElement('style');
+    miniStarStyle.textContent = `
+      @keyframes miniStarFloat {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(0, -30px) scale(0);
+          opacity: 0;
+        }
+      }
+      @keyframes galleryHover {
+        0% {
+          transform: scale(1) rotate(0deg);
+        }
+        100% {
+          transform: scale(1.15) rotate(5deg);
+        }
+      }
+    `;
+    document.head.appendChild(miniStarStyle);
+
+    // Inicializar partículas ao carregar
+    window.addEventListener('load', function() {
+      createParticles();
+      
+      // Adicionar mais decorações dinâmicas
+      setInterval(() => {
+        if (Math.random() > 0.7) {
+          createRandomFlash();
+        }
+      }, 3000);
+    });
+
+    // Criar flash aleatório (paparazzi)
+    function createRandomFlash() {
+      const flash = document.createElement('div');
+      flash.style.position = 'fixed';
+      flash.style.left = Math.random() * window.innerWidth + 'px';
+      flash.style.top = Math.random() * window.innerHeight + 'px';
+      flash.style.width = '100px';
+      flash.style.height = '100px';
+      flash.style.background = 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, transparent 50%)';
+      flash.style.borderRadius = '50%';
+      flash.style.pointerEvents = 'none';
+      flash.style.zIndex = '999';
+      flash.style.animation = 'quickFlash 0.2s ease-out forwards';
+      
+      document.body.appendChild(flash);
+      setTimeout(() => flash.remove(), 200);
+    }
+
+    // Flash rápido
+    const flashStyle = document.createElement('style');
+    flashStyle.textContent = `
+      @keyframes quickFlash {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(flashStyle);
+
+    // Easter egg: clicar no nome dourado
+    const goldenName = document.querySelector('.golden-name');
+    if (goldenName) {
+      goldenName.addEventListener('click', function() {
+        this.style.animation = 'superGlow 1s ease';
+        createConfetti();
+        setTimeout(() => {
+          this.style.animation = 'shimmer 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate';
+        }, 1000);
+      });
+    }
+
+    // Super glow animation
+    const superGlowStyle = document.createElement('style');
+    superGlowStyle.textContent = `
+      @keyframes superGlow {
+        0%, 100% {
+          filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+          transform: scale(1);
+        }
+        50% {
+          filter: drop-shadow(0 0 60px rgba(255, 215, 0, 1));
+          transform: scale(1.1);
+        }
+      }
+    `;
+    document.head.appendChild(superGlowStyle);
+  </script>
+</body>
+</html>
